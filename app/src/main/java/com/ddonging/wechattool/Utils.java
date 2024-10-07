@@ -49,10 +49,9 @@ public class Utils {
     //读取Uri拷贝Apk
     private static Boolean copyApkFile(Context context, Uri uri, File file) {
         try {
-            //解析外部传来的是File:// 还是 Content://
             InputStream inputStream;
             if (SCHEME_FILE.equals(uri.getScheme())) {
-                //需要读取存储权限
+
                 inputStream= new FileInputStream(new File(uri.getPath()));
             } else if (SCHEME_CONTENT.equals(uri.getScheme())) {
                 inputStream= context.getContentResolver().openInputStream(uri);
@@ -60,11 +59,11 @@ public class Utils {
                 return false;
             }
             FileOutputStream outputStream = new FileOutputStream(file);
-            int BUFFER_SIZE = 1024 * 2;
+            int size = 1024 * 2;
             int n = 0;
-            byte[] buffer =new byte[BUFFER_SIZE];
-            BufferedInputStream bis = new BufferedInputStream(inputStream, BUFFER_SIZE);
-            BufferedOutputStream bos = new BufferedOutputStream(outputStream, BUFFER_SIZE);
+            byte[] buffer =new byte[size];
+            BufferedInputStream bis = new BufferedInputStream(inputStream, size);
+            BufferedOutputStream bos = new BufferedOutputStream(outputStream, size);
             while ((n=bis.read(buffer))!=-1) {
                 bos.write(buffer, 0, n);
             }
@@ -76,7 +75,6 @@ public class Utils {
             return true;
         } catch ( Exception e) {
             e.printStackTrace();
-
             return false;
         }
 

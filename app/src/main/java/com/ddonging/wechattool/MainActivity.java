@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -22,12 +21,11 @@ import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, 100);
+        //ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, 100);
 
         SharedPreferences shares=getSharedPreferences("data",MODE_PRIVATE);
         Boolean isShare=shares.getBoolean("share",false);

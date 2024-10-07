@@ -37,12 +37,9 @@ public class ShareActivity extends AppCompatActivity {
         super.onDestroy();
         finishAffinity();
     }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      // ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, EXTERNAL_STORAGE_PERMISSION);
         SharedPreferences shares = getSharedPreferences("data", MODE_PRIVATE);
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -50,9 +47,7 @@ public class ShareActivity extends AppCompatActivity {
         sendIntent.addCategory("android.intent.category.DEFAULT");
         Uri uri = getIntent().getData();
         Boolean isShare=shares.getBoolean("share",false);
-
         Boolean isInstall=shares.getBoolean("install",false);
-
             if (uri.getScheme().equals("file")||uri.getScheme().equals("content")) {
                 if (uri.getPath().contains(".apk.1")) {
                     new MaterialAlertDialogBuilder(this)
@@ -101,7 +96,6 @@ public class ShareActivity extends AppCompatActivity {
                         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
                         StrictMode.setVmPolicy(builder.build());
                         builder.detectFileUriExposure();
-
                         sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
                         sendIntent.setType(getIntent().getType());
                         sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -110,17 +104,15 @@ public class ShareActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), R.string.no_share, Toast.LENGTH_LONG).show();
                         finishAffinity();
                     }
-
-
                 }
 
             }
 
     }
     public File creatApkCopyFile(Uri uri) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED) {
-            //ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, EXTERNAL_STORAGE_PERMISSION);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED) {
+//            //ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE}, EXTERNAL_STORAGE_PERMISSION);
+//        }
         String filePath = Utils.getFilePathFromURI(this, uri);
         if (filePath != null) {
             file = new File(filePath);
@@ -130,11 +122,6 @@ public class ShareActivity extends AppCompatActivity {
     }
     private void installApk(File file) {
         Uri apkUri;
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            Uri packageURI = Uri.parse("package:" + getPackageName());
-//            Intent intent =new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI);
-//            startActivityForResult(intent, GET_UNKNOWN_APP_SOURCES);
-//        } else {
         Intent intent =new  Intent(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -144,7 +131,6 @@ public class ShareActivity extends AppCompatActivity {
         }
         intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
         startActivityForResult(intent, INSTALL_APP);
-//        }
     }
 
     @Override
