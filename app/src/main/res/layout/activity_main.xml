@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            app:title="@string/app_name"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+       android:layout_width="match_parent"
+       android:layout_margin="20dp"
+        android:id="@+id/permission"
+       android:layout_height="60dp">
+       <com.google.android.material.circularreveal.CircularRevealLinearLayout
+           android:layout_width="match_parent"
+           android:gravity="center_vertical"
+           android:layout_height="match_parent">
+           <com.google.android.material.textview.MaterialTextView
+               android:layout_width="match_parent"
+               android:layout_marginLeft="20dp"
+               android:layout_weight="1"
+               android:text="@string/permission"
+               android:layout_height="wrap_content"/>
+           <androidx.constraintlayout.utils.widget.ImageFilterView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@mipmap/ic_go"/>
+       </com.google.android.material.circularreveal.CircularRevealLinearLayout>
+
+   </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textSize="12sp"
+        android:text="设置"/>
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:gravity="center_vertical"
+     android:orientation="horizontal"
+
+     android:layout_height="80dp">
+     <com.google.android.material.textview.MaterialTextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_weight="1"
+         android:layout_marginLeft="20dp"
+         android:text="文件打开变分享文件"/>
+     <com.google.android.material.materialswitch.MaterialSwitch
+         android:layout_width="wrap_content"
+         android:id="@+id/share"
+         android:layout_marginRight="20dp"
+         android:layout_height="wrap_content"/>
+ </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+
+        android:layout_height="80dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:text="APK.1直接安装APK"/>
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:layout_width="wrap_content"
+            android:id="@+id/install"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="12sp"
+                android:text="更多"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+
+                android:layout_height="80dp">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:text="隐藏图标"/>
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:layout_width="wrap_content"
+                    android:id="@+id/hide"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:text="使用说明"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:text="一款集成补丁 可以将打开文件（微信用其他方式打开）变成分享文件 微信压缩包等其他文件可以直接分享到QQ\n\n开启APK.1直接安装APK 可将QQ或者微信的apk.1文件直接安装 跳过保存改后缀的部分\n\nAn integrated patch can turn open files (opened through other methods such as WeChat) into shared files. WeChat compressed files and other files can be directly shared to QQ\n\n
+Open APK. 1 and install APK directly. You can install QQ or WeChat apk. 1 files directly without saving or changing the suffix"/>
+
+    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:text="关于"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+
+        android:layout_height="80dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:text="GitHub开源地址"/>
+
+    </LinearLayout>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

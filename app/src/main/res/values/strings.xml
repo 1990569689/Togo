@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Togo</string>
+    <string name="share">Togo</string>
+    <string name="no_share">分享功能关闭</string>
+    <string name="no_install">直接安装功能关闭</string>
+    <string name="dialog_title">微信直接分享文件</string>
+    <string name="dialog_message">直接安装APK</string>
+    <string name="ok_install">安装APK</string>
+
+    <string name="ok_share">分享APK</string>
+
+    <string name="permission">获取权限</string>
+</resources>
